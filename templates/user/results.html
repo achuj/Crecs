@@ -1,0 +1,30 @@
+{% include 'user/user_header.html' %}
+<style type="text/css">
+	table{
+		background: #FFF;
+		width:100%;
+	}
+	table td,table th{
+		padding:10px;
+	}
+</style>
+<h1>Suggested course</h1>
+<table>
+	<tr>
+		<th>Course</th>
+		<td>{{data[0]['cou_name']}}</td>
+	</tr>
+	<tr>
+		<th>College name</th>
+		<td>{{data[0]['clg_name']}}</td>
+	</tr>
+	<tr>
+		<th>Address</th>
+		<td>{{data[0]['ins_address']}}</td>
+	</tr>
+	<tr>
+		<th>University</th>
+		<td>{{data[0]['uni_name']}}</td>
+	</tr>
+</table>
+{% include 'user/user_footer.html' %}

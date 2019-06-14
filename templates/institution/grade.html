@@ -1,0 +1,34 @@
+{% include 'institution/insti_header.html' %}
+<form method="post">
+    <center>
+        <h1>View Grade</h1>
+        <div class="white-bg">
+            <table class="table">
+                {% for row in data%}
+                <tr>
+                    <td>College Name:</td>
+                    <td>{{row['clg_name']}}</td>
+                </tr>
+                <tr>
+                    <td>College Address:</td>
+                    <td>{{row['ins_address']}}</td>
+                </tr>
+                <tr>
+                    <td>GRADE:</td>
+                    <td>{{row['grade']}}</td>
+                </tr>
+                {% endfor %}
+                <tr>
+                    <td></td>
+                    <td>
+
+               <span style="color:red"> NOTE</span>:<span style="color:red">A</span>-Excellent,<span style="color:red">B</span>-Good,<span style="color:red">C</span>-Average,<span style="color:red">D</span>-poor,<span style="color:red">E</span>-very poor
+                    </td>
+                </tr>
+            </table>
+
+
+        </div>
+    </center>
+</form>
+{% include 'institution/insti_footer.html' %}

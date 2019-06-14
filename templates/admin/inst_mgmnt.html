@@ -1,0 +1,73 @@
+{%  include 'admin/admin_header.html' %}
+<form method="post">
+<center>
+    <h1>Institution Management</h1>
+     <div class="white-bg">
+            <table class="table">
+                <tr>
+                    <td>University:</td>
+                    <td>
+                        <select name="uni_id">
+                            <option selected disabled>Choose university</option>
+                            {% for row in university %}
+                            <option value="{{row['uni_id']}}">{{row['uni_name']}}</option>
+                            {% endfor %}
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>College Name:</td>
+                    <td><input type="text" name="cname"></td>
+                </tr>
+                <tr>
+                    <td>College Address:</td>
+                    <td><input type="text" name="caddr"></td>
+                </tr>
+                <tr>
+                    <td>Email:</td>
+                    <td><input type="email" name="email" required></td>
+                </tr>
+                <tr>
+                    <td>Phone:</td>
+                    <td><input type="text" name="phone"> </td>
+                </tr>
+
+                <tr>
+                    <td></td>
+                    <td><input type="submit" name="submit" value="ADD"></td>
+                </tr>
+            </table>
+        </div>
+
+</center>
+</form>
+<form method="post">
+
+    <center>
+        <h1>View Institution</h1>
+        <div class="white-bg">
+            <table  class="table">
+                <tr>
+                    <td>INS_ID</td>
+                    <td>CLG_NAME</td>
+                    <td>UNIVERSITY</td>
+                    <td>ADDRESS</td>
+                </tr>
+                {% for row in data %}
+                <tr>
+
+                    <td>{{row['ins_id']}}</td>
+                    <td>{{row['clg_name']}}</td>
+                    <td>{{row['uni_name']}}</td>
+                    <td>{{row['ins_address']}}</td>
+
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </center>
+    </form>
+
+
+
+{% include 'admin/admin_footer.html' %}

@@ -1,0 +1,34 @@
+{% include 'institution/insti_header.html' %}
+
+<form method="post">
+    <center>
+        <h3 align="left">Answer these questions to know where you are: </h3>
+        <div class="white-bg">
+        <table class="table">
+            <tr>
+                <td><h4><span style="color:black">RANKING QUESTIONS</span></h4></td>
+                <td><h4><span style="color:black">SELECT YOUR ANSWER</span></h4></td>
+            </tr>
+            {% for row in data %}
+            <tr>
+                <td>{{row['title']}}</td>
+                <td>
+                    <select name="feci{{row['fec_id']}}">
+                        <option>-select-</option>
+                        <option value="no">NO</option>
+                        <option value="yes">YES</option>
+                        <option value="not applicable">NOT APPLICABLE</option>
+                    </select>
+                </td>
+            </tr>
+            {% endfor %}
+            <tr>
+                <td></td>
+                <td><input type="submit" value="SUBMIT" name="submit"></td>
+            </tr>
+
+        </table>
+            </div>
+    </center>
+</form>
+{% include 'institution/insti_footer.html' %}

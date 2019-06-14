@@ -1,0 +1,23 @@
+{% include 'admin/admin_header.html'%}
+<form method="post">
+    <center>
+        <h1>Feedback</h1>
+        <div class="white-bg">
+            <table class="table">
+                <tr>
+                    <td>Login_id</td>
+                    <td>Login_type</td>
+                    <td>Feedback</td>
+                </tr>
+                {% for row in data %}
+                <tr>
+                    <td>{{row['login_id']}}</td>
+                    <td>{{row['login_type']}}</td>
+                    <td>{{row['feedback']}}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </center>
+</form>
+{% include 'admin/admin_footer.html'%}

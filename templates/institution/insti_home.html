@@ -1,0 +1,44 @@
+{% include 'institution/insti_header.html' %}
+{% for row in data %}
+<center>
+    <h3>Welcome <h2><bold><span style="color:white">"{{ row['clg_name']}}"</span></bold></h2></h3>
+    <div class="white-bg">
+    <table class="table">
+        <tr>
+            <td>
+                College Address:
+            </td>
+            <td>
+                {{row['ins_address']}}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                email:
+            </td>
+            <td>
+                {{row['email']}}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                phone:
+            </td>
+            <td>
+                {{row['phone']}}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Grade:
+            </td>
+            <td>
+                {{row['grade']}}
+            </td>
+        </tr>
+    </table>
+        </div>
+</center>
+{% endfor %}
+
+{% include 'institution/insti_footer.html' %}

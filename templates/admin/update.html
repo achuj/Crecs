@@ -1,0 +1,41 @@
+{% include 'admin/admin_header.html' %}
+<center>
+<h1>update table</h1>
+    <form method="post">
+        <div class="white-bg">
+    <table>
+
+        <tr>
+            <td><input type="hidden" name="id" value="{{data[0]['user_id']}}"></td>
+        </tr>
+        <tr>
+            <td>first Name:</td>
+            <td><input type="text" name="fname" value="{{data[0]['fname']}}"></td>
+        </tr>
+        <tr>
+            <td>Last Name</td>
+            <td><input type="text" name="lname" value="{{data[0]['lname']}}"></td>
+        </tr>
+        <tr>
+            <td>DOB</td>
+            <td><input type="date" name="dob" value="{{data[0]['dob']}}"> </td>
+        </tr>
+        <tr>
+            <td>Email</td>
+            <td><input type="email" name="email" value="{{data[0]['email']}}"> </td>
+        </tr>
+        <tr>
+            <td>Phone</td>
+            <td><input type="text" name="phone" value="{{data[0]['phone']}}"></td>
+        </tr>
+        <tr>
+            <td></td>
+
+            <td><input type="submit" name="update" value="UPDATE"></td>
+        </tr>
+    </table>
+            </div>
+        </form>
+</center>
+
+{% include 'admin/admin_footer.html' %}

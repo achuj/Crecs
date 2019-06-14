@@ -1,0 +1,33 @@
+{% include 'admin/admin_header.html' %}
+   <center>
+       <h1>Users List</h1>
+       <div class="white-bg">
+           <form action="" method="post">
+        <table class="table">
+        <tr>
+            <td>First Name</td>
+            <td>Last Name</td>
+            <td>DOB</td>
+            <td>Email</td>
+            <td>Phone</td>
+            <td>Remove</td>
+            <td>Update</td>
+        </tr>
+        {% for row in  data %}
+        <tr>
+            <td>{{row['fname']}}</td>
+            <td>{{row['lname']}}</td>
+            <td>{{row['dob']}}</td>
+            <td>{{row['email']}}</td>
+            <td>{{row['phone']}}</td>
+            <td><a href="?id={{row['login_id']}}&delete=1">Delete</a> </td>
+            <td><a href="/update?id={{row['user_id']}}&update=1">update</a> </td>
+
+        </tr>
+        {% endfor %}
+    </table>
+       </form>
+
+       </div>
+    </center>
+{%include 'admin/admin_footer.html' %}

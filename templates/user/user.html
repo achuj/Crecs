@@ -1,0 +1,97 @@
+{% include 'user/user_header.html' %}
+<style type="text/css">
+    select,input{
+        width:100%;
+        margin-top: 5px;
+    }
+</style>
+<form method="post">
+    <div class="white-bg">
+    <center>
+        <h1>Course details</h1>
+        <table>
+            <tr>
+                <td>
+                    <select name="cou_id" >
+                        <option selected disabled>Choose course</option>
+                        {% for row in data %}
+                    <option value="{{row['cou_id']}}">{{row['cou_id']}} - {{row['cou_name']}}</option>
+                        {% endfor %}
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" style="text-align: center;">
+                    <b>SUBJETCS</b>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" id="subjects" style="text-align: center;">
+                   
+                </td>
+            </tr>
+            <tr>
+
+            </tr>
+            <tr>
+                <td colspan="2" style="text-align: center;">
+                    <b>INTERESTS</b>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2"> 
+
+                    <select multiple id="intrest" name="intrest">
+                        {% for row in intrest %}
+                        <option value="{{ row['int_id'] }}">{{row['intrest']}}</option>
+                        {% endfor %}
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="submit" value="NEXT" name="submit">
+                </td>
+            </tr>
+
+        </table>
+    </center>
+        </div>
+</form>
+
+
+<script>
+
+    window.onload = function(){
+        $("select[name='cou_id']").change(function(){
+            var value = $(this).val()
+            $.get('/get_subjects?cou_id=' + value,function(res){
+                console.log(res)
+                obj = JSON.parse(res)
+                var asd = ""
+                for(i=0;i<obj.length;i++){
+                    asd += "<input type='text' name='subject_"+obj[i].sub_id+"' placeholder='"+obj[i].sub_name+"'><br>"
+                }
+
+                $("#subjects").html(asd)
+
+            })
+
+        });
+        $("select[name='insti']").change(function(){
+            var value=$(this).val()
+            $.get('/get_course?ins_id='+value,function(res){
+                ob = JSON.parse(res)
+                var as = ""
+                for(i=0;i<ob.length;i++){
+                    as += "<option value='" + ob[i].cou_id + "'>" + ob[i].cou_name + "</option>"
+                }
+                $("select[name='cor']").html(as)
+            })
+        });
+
+
+    }
+</script>
+
+{% include 'user/user_footer.html' %}

@@ -1,0 +1,47 @@
+{% include 'user/user_header.html' %}
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="/static/learn/js/jquery.min.js"></script>
+</head>
+<body>
+
+<form method="post">
+<div class="white-bg">
+    <center>
+        <h3>Current Course Details</h3>
+        <table border="1.5">
+            <tr>
+                <td><center>
+                    SUBJECTS
+                </center>
+                </td>
+                <td>
+                    <center>
+                        MARK
+                    </center>
+                </td>
+
+
+            {% for row in data %}
+            <tr>
+            <td>{{row['sub_name']}}</td>
+                <td><input type="text" name="mark{{row['sub_id']}}"></td>
+            </tr>
+            {% endfor %}
+
+        </table>
+        <table>
+            <tr>
+                <td>                </td>
+                <td><input type="submit" name="submit" value="NEXT"></td>
+            </tr>
+        </table>
+    </center>
+    </div>
+
+
+
+</form>
+
+{% include 'user/user_footer.html'%}

@@ -1,0 +1,22 @@
+import nltk
+print(nltk.__version__)
+nltk.download('punkt')
+nltk.download('stopwords')
+from nltk.corpus import stopwords;
+
+from nltk.tokenize import  word_tokenize
+
+EXAMPLE_TEXT = "Hello Mr. Smith, how are you doing today? the weather is great, and Python is awesome. the sky is pinkish-blue. You shouldn't eat cardboard."
+stop_words = set(stopwords.words('english'))
+#print(word_tokenize(EXAMPLE_TEXT))
+word_tokens = word_tokenize(EXAMPLE_TEXT)
+#filtered_sentence = [w for w in EXAMPLE_TEXT if not w in stop_words]
+
+filtered_sentence=[]
+
+for w in word_tokens:
+    if w not in stop_words:
+        filtered_sentence.append(w)
+
+#print(EXAMPLE_TEXT)
+print(filtered_sentence)

@@ -1,0 +1,58 @@
+{%  include 'admin/admin_header.html' %}
+
+<form method="post">
+    <center>
+        <h1>facilities</h1>
+        <div class="white-bg">
+        <table>
+            <tr>
+            add facilities
+            </tr>
+            <tr>
+                <td>Title:</td>
+                <td>
+                    <input type="text" name="title">
+                </td>
+            </tr>
+            <tr>
+                <td>Description:</td>
+                <td>
+                    <textarea name="desc" placeholder="input about facilities"></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><input type="button" name="submit" value="ADD"></td>
+            </tr>
+        </table>
+        </div>
+    </center>
+</form>
+<form>
+    <center>
+        <h1>View Facilities</h1>
+        <div class="white-bg">
+            <table>
+                <tr>
+                    <td>
+                        fec_id
+                    </td>
+                    <td>
+                        Title
+                    </td>
+                    <td>
+                        description
+                    </td>
+                </tr>
+                {% for row in data %}
+                <tr>
+                    <td>{{row['fec_id']}}</td>
+                    <td>{{row['title']}}</td>
+                    <td>{{row['description']}}</td>
+                </tr>
+            </table>
+        </div>
+    </center>
+</form>
+
+{% include 'admin/admin_footer.html'%}

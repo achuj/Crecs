@@ -1,0 +1,74 @@
+{% include 'admin/admin_header.html' %}
+<form method="post">
+<center >
+    <h1>Course Management</h1>
+
+         <div class="white-bg">
+    <table class="table">
+        <tr>
+            <td>Select College:</td>
+            <td>
+                <!--{{ data }}-->
+                <select name="clg_id" id="">
+                    <option selected disabled>Choose college</option>
+                {% for row in inst %}
+
+                <option value="{{row['ins_id']}}">{{row['clg_name']}}</option>
+                {% endfor %}
+            </select> </td>
+        </tr>
+        <tr>
+            <td>Group:</td>
+            <td>
+                <select name="group_id"> 
+                    <option selected disabled>Choose group</option>
+                    {% for row in data %}
+                        <option value="{{row['group_id']}}">{{row['group_name']}}</option>
+                    {% endfor %}
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>Course name:</td>
+            <td><select name="course">
+                <option selected disabled>Choose Course</option>
+                    {% for row in course %}
+                        <option value="{{row['cou_id']}}">{{row['cou_name']}}</option>
+                    {% endfor %}
+            </select> </td>
+        </tr>
+
+        <tr>
+            <td></td>
+            <td><input type="submit" name="submit" value="ADD COURSE"></td>
+        </tr>
+    </table>
+         </div>
+    </center>
+        </form>
+
+<form method="post">
+    <center>
+        <h1>VIEW COURSE</h1>
+        <div class="white-bg">
+            <table class="table">
+                <tr>
+                    <td>course_id</td>
+                    <td>group_name</td>
+                    <td>course_name</td>
+                    <td>course_type</td>
+                </tr>
+                {% for row in groups %}
+                <tr>
+                    <td>{{row['cou_id']}}</td>
+                    <td>{{row['group_name']}}</td>
+                    <td>{{row['cou_name']}}</td>
+                    <td>{{row['cou_type']}}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </center>
+</form>
+
+{% include 'admin/admin_footer.html' %}

@@ -1,0 +1,69 @@
+{% include 'admin/admin_header.html' %}
+
+<form method="post">
+<center >
+    <h1>Add Facilities</h1>
+
+         <div class="white-bg">
+    <table class="table">
+        <tr>
+            <td>Title:</td>
+            <td>
+                <input type="text" name="title">
+            </td>
+        </tr>
+        <tr>
+            <td>Description:</td>
+            <td>
+                <textarea name="desc" placeholder="input about facility"></textarea>
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="submit" name="submit" value="Add Facility"></td>
+        </tr>
+    </table>
+         </div>
+    </center>
+</form>
+<form method="post">
+    <center>
+        <h1>view facilities</h1>
+        <div class="white-bg">
+            <table class="table">
+                <tr>
+                    <td>
+                        si.no
+                    </td>
+                    <td>
+                        facility
+                    </td>
+                    <td>
+                        description
+                    </td>
+                    <td>
+                        remove
+                    </td>
+                    <td>
+                        update
+                    </td>
+                </tr>
+                    {% for row in data %}
+                 <tr>
+                    <td>{{loop.index}}</td>
+                    <td>{{row['title']}}</td>
+                    <td>{{row['description']}}</td>
+                    <td><a href="?id={{row['fec_id']}}&delete=1">Delete</a> </td>
+                    <td><a href="/update_fec?id={{row['fec_id']}}&update=1">update</a> </td>
+                 </tr>
+                    {% endfor %}
+
+
+            </table>
+        </div>
+    </center>
+
+</form>
+
+
+{% include 'admin/admin_footer.html' %}
